@@ -62,41 +62,6 @@ body{
 body, footer, #wrap, #main{
     transition: all linear 0.3s;
 }
-/*
-.aboutColour{
-    background-color: $colour2;
-
-    nav a{
-        color: $colour2;
-    }
-
-    #main, footer{
-        background-color: $colour2;
-    }
-}
-.workColour{
-    background-color: $colour3;
-
-    nav a{
-        color: $colour3;
-    }
-
-    #main, footer{
-        background-color: $colour3;
-    }
-}
-.etcColour{
-    background-color: $colour4;
-
-    nav a{
-        color: $colour4;
-    }
-
-    #main, footer{
-        background-color: $colour4;
-    }
-
-}*/
 .wrap{
     min-height: 100%;
 }
@@ -309,4 +274,22 @@ footer{
             text-decoration: none;
         }
     }
+}
+
+#settings {
+    bottom: 0;
+    height: 60px;
+    position: fixed;
+    right: 0;
+    width: 10%;
+    z-index: 101;
+    cursor: pointer;
+    background-image: url('/img/settings.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px;
+}
+
+.clearBoth{
+    clear: both;
 }

@@ -1,11 +1,12 @@
-<section id="work" ng-controller="WorkCtrl">
-    <article class="post" ng-repeat="work in works">
+<section id="work">
+    <article class="post" data-ng-repeat="work in works">
          <div class="postDetails">
                 <h2>{{work.name}}</h2>
                 <p>{{work.description}}
 
                 <a href="{{work.url}}" target="_blank">{{work.urlText}}</a>
                 </p>
+                <div class="clearBoth"/>
             </div>
         </article>
 </section>
