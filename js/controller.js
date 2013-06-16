@@ -12,6 +12,18 @@ function WorkCtrl ($scope) {
         ];
 }
 
+//Show settings bar on click
+function FooterCtrl ($scope){
+    $scope.settings = false;
+    $scope.showSettings = function(){
+        $scope.settings = true;
+    }
+    $scope.hideSettings = function(){
+        $scope.settings = false;
+    }
+}
+
+
 function List ($scope){
     $scope.people = [
         {name: "David", age: 28},
@@ -35,3 +47,4 @@ function List ($scope){
         $scope.people.splice(index, 1);
     }
 };
+
