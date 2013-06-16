@@ -320,6 +320,7 @@ footer{
     //animation: settingsSlide 0.3s;
     font-size: 1.4rem;
     z-index: 10000;
+    -webkit-transform: translate3d(0, -360px, 0);
     transform: translate3d(0, -360px, 0);
 
     h2, p{
