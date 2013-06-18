@@ -382,10 +382,12 @@ html.geocities-true{
     }
     .wrap{
         background: url('../img/blue.jpg');
+        background-attachment: fixed;
     }
     #main{
-        background-color: none;
         background: url('../img/blue.jpg');
+        background-attachment: fixed;
+        background-color: rgba(0,0,0,0);
         color: #00ff00;
 
         p{
