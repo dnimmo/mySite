@@ -13,13 +13,22 @@ function WorkCtrl ($scope) {
 }
 
 //Show settings bar on click
-function FooterCtrl ($scope){
+function FooterCtrl ($scope, $rootScope){
     $scope.settings = false;
     $scope.showSettings = function(){
         $scope.settings = true;
     }
     $scope.hideSettings = function(){
         $scope.settings = false;
+    }
+
+    //Geocities Mode
+    $rootScope.geocities = false;
+    $rootScope.geocitiesModeOn = function(){
+        $rootScope.geocities = true;
+    }
+    $rootScope.geocitiesModeOff = function(){
+        $rootScope.geocities = false;
     }
 }
 
