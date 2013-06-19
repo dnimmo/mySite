@@ -1,27 +1,6 @@
 <section id="work" data-ng-show>
 	<h1>Etc.</h1>
 
-	<div>
-		<input type="search" data-ng-model="search"/>
-	<div>
-
-	<div data-ng-controller="List">
-		<ul>
-			<li data-ng-repeat="person in people | filter:search">
-				{{person.name}} : {{person.age}}
-				<button data-ng-click="remove($index)">x</button>
-				<span data-ng-show="$first">First</span>
-				<span data-ng-show="$middle">Middle</span>
-				<span data-ng-show="$last">Last</span>
-			</li>
-		</ul>
-		<p>There are {{people.length}} people in this list.</p>
-		<label>Name:</label><input data-ng-model="new_name"></input>
-		<label>Age:</label><input type="number" data-ng-model="new_age"></input>
-		<button ng-click="add()">Add</button>
-
-		<select data-ng-model-"selected_person" data-ng-options="person.name for person in people">
-		<option value="">Choose a person:</option>
 
 	</div>
 </section>

@@ -88,7 +88,6 @@ body, footer, #wrap, #main{
     min-height: 100%;
 }
 #main{
-    background-color:$colour1;
     color: #fff;
     position: relative;
     font-size: 2rem;
@@ -112,7 +111,7 @@ body, footer, #wrap, #main{
 .intro{
     font-size: 4rem;
     text-align: center;
-    margin: 22% 0;
+    margin: 21% 0;
 }
 
 .about{
@@ -336,14 +335,20 @@ footer{
         font-weight: normal;
     }
 
-    .setting{
+    .active-false{
+        color: #8f8f8f;
         cursor:pointer;
     }
 
-    .active-true{
-        background-color: $colour1;
-        color: #fff;
+    input {
+        border-color: $colour1;
+        border-style: none none solid;
+        border-width: 0 0 2px;
+        color: #307BC5;
+        margin-left: 5px;
+        width: 60px;
     }
+
 }
 
 .clearBoth{
@@ -385,8 +390,6 @@ html.geocities-true{
         background-attachment: fixed;
     }
     #main{
-        background: url('../img/blue.jpg');
-        background-attachment: fixed;
         background-color: rgba(0,0,0,0);
         color: #00ff00;
 
