@@ -6,6 +6,8 @@
 
                 <a href="{{work.url}}" target="_blank">{{work.urlText}}</a>
                 </p>
+                <img data-ng-click="showExpanded(true)" data-ng-hide="preview" class="preview" src="{{work.preview}}"/>
+                <div class="expanded" data-ng-show="expanded"><div class="close" data-ng-click="showExpanded(false)">X</div><img src="{{work.big}}"/></div>
                 <div class="clearBoth"/>
             </div>
         </article>

@@ -64,11 +64,25 @@
     }
 }
 
+@include keyframes(glow){
+    0%{
+        opacity: 0.6;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0.6;
+    }
+}
+
 /*Variables*/
 $colour1: #307BC5;
 $colour2: #FD6A62;
 $colour3: #6FC26B;
 $colour4: #484D79;
+
+$transition: all linear 0.3s;
 
 html, body{
     height: 100%;
@@ -217,6 +231,47 @@ h1{
             }
         }
 
+        .preview{
+            float: right;
+            margin-top: -70px;
+            opacity: 0.6;
+            -webkit-animation: glow 2s;
+            animation: glow 2s;
+            -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+            transition: $transition;
+
+            &:hover{
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+
+        .expanded {
+            float: right;
+            margin-bottom: -7px;
+            margin-top: -70px;
+            text-align: center;
+            width: 50%;
+
+            img{
+                max-width: 100%;
+                z-index: 332;
+            }
+
+            .close{
+                cursor: pointer;   
+                z-index: 333;  
+                position: relative;
+                margin-bottom: -20px;
+                transition: $transition;
+                width: 100%;
+                height: 30px;
+                background: rgba(0,0,0,0.6);
+            }
+        }
+
+
         &:last-child{
             border-bottom: 0;
         }
@@ -319,7 +374,11 @@ footer{
     height: 360px;
     margin-top: 60px;
     position: absolute;
-    transition: all 0.3s linear 0s;
+     -webkit-transition: 0.3s linear all; /* Safari/Chrome */
+     -moz-transition: 0.3s linear all; /* Firefox */
+     -ms-transition: 0.3s linear all; /* IE10 */
+     -o-transition: 0.3s linear all; /* Opera */
+     transition: 0.3s linear all; /* Future Browsers */
     width: 100%;
     color: $colour1;
     //-moz-animation: settingsSlide 0.3s;
@@ -330,16 +389,40 @@ footer{
     -webkit-transform: translate3d(0, -360px, 0);
     transform: translate3d(0, -360px, 0);
 
+    /*
+     The animate-enter prefix is the event name that you
+     have provided within the ngAnimate attribute.
+    */
+    .animate-enter-setup {
+
+     
+     /* The animation preparation code */
+     opacity: 0;
+    }
+     
+    /*
+     Keep in mind that you want to combine both CSS
+     classes together to avoid any CSS-specificity
+     conflicts
+    */
+    .animate-enter-setup.animate-enter-start {
+     /* The animation code itself */
+     opacity: 1;
+    }
+
     h2, p{
         padding-left: 5%;
         font-weight: normal;
     }
-
+    .setting{
+        transition: $transition;
+    }
     .active-false{
-        color: #8f8f8f;
         cursor:pointer;
     }
-
+    .active-true{
+        color: #8f8f8f;
+    }
     input {
         border-color: $colour1;
         border-style: none none solid;
