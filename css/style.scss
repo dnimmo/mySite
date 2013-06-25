@@ -4,10 +4,13 @@
         @media screen and (max-width:400px){@content;}
     }
     @else if ($p == 'm'){
-        @media screen and (max-width:800px){@content;}
+        @media screen and (max-width:850px){@content;}
     }
     @else if ($p == 'l'){
         @media screen and (max-width:1000px){@content;}
+    }
+    @else if ($p == 'xl'){
+        @media screen and (max-width:1350px){@content;}
     }
 }
 // Keyframes mixin
@@ -59,8 +62,11 @@
     0%{
         opacity: 0;
     }
-    100%{
+    50%{
         opacity: 1;
+    }
+    100%{
+        opacity: 0;
     }
 }
 
@@ -78,8 +84,8 @@
 
 /*Variables*/
 $colour1: #307BC5;
-$colour2: #FD6A62;
-$colour3: #6FC26B;
+$colour2: #2D3538;
+$colour3: #fff;
 $colour4: #484D79;
 
 $transition: all linear 0.3s;
@@ -100,6 +106,14 @@ body, footer, #wrap, #main{
 }
 .wrap{
     min-height: 100%;
+    transition: $transition;
+    transform: translate3d(0,0,0);
+    overflow-x: hidden;
+
+    &.extraInfo-true, &.showSettings-true{
+        background-color: darken($colour1, 20%);
+        color: darken(#fff, 20%);
+    }
 }
 #main{
     color: #fff;
@@ -132,10 +146,21 @@ body, footer, #wrap, #main{
     padding: 5%;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
-    width: 75%;
+    font-size: 1.5rem;
+    line-height: 1.5em;
 
-    @include bp(s){
-        width: 90%;
+    .info{
+        width: 80%;
+
+        h2{
+            font-size: 3rem;
+            font-weight: normal;
+            font-family: 'Lobster', cursive;
+        }
+
+        @include bp(m){
+            width: 100%;
+        }
     }
 }
 
@@ -159,9 +184,10 @@ body, footer, #wrap, #main{
     -webkit-animation: fadeIn 5s;
     animation: fadeIn 5s;
 }
-.period{
-    -webkit-animation: fadeIn 5.5s;
-    animation: fadeIn 5.5s;
+.underscore{
+    -webkit-animation: blink 0.5s infinite 4s;
+    animation: blink 0.5s infinite 4s;
+    opacity: 0;
 }
 
 h1{
@@ -352,17 +378,17 @@ footer{
 }
 
 #settingsToggle {
-    bottom: 0;
+    top: 0;
     height: 60px;
     position: absolute;
     right: 0;
-    width: 10%;
-    z-index: 101;
+    width: 5%;
     cursor: pointer;
-    background-image: url('/img/settings.png');
+    background-image: url('../img/settings.png');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 30px;
+    z-index: 100;
 
     @include bp(m){
         width: 20%;
@@ -371,45 +397,35 @@ footer{
 
 #settingsPanel{
     background-color: #FFFFFF;
-    height: 360px;
-    margin-top: 60px;
+    height: 100%;
+    width: 0;
     position: absolute;
+    right: 0;
      -webkit-transition: 0.3s linear all; /* Safari/Chrome */
      -moz-transition: 0.3s linear all; /* Firefox */
      -ms-transition: 0.3s linear all; /* IE10 */
      -o-transition: 0.3s linear all; /* Opera */
      transition: 0.3s linear all; /* Future Browsers */
-    width: 100%;
     color: $colour1;
-    //-moz-animation: settingsSlide 0.3s;
-    //-webkit-animation: settingsSlide 0.3s;
-    //animation: settingsSlide 0.3s;
     font-size: 1.4rem;
-    z-index: 10000;
-    -webkit-transform: translate3d(0, -360px, 0);
-    transform: translate3d(0, -360px, 0);
+    z-index: 100;
+    -webkit-box-shadow: 2px 2px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 32px rgba(0, 0, 0, 0.3);
 
-    /*
-     The animate-enter prefix is the event name that you
-     have provided within the ngAnimate attribute.
-    */
-    .animate-enter-setup {
+    &.settingsPanel-true{
+        width: 30%;
 
-     
-     /* The animation preparation code */
-     opacity: 0;
-    }
-     
-    /*
-     Keep in mind that you want to combine both CSS
-     classes together to avoid any CSS-specificity
-     conflicts
-    */
-    .animate-enter-setup.animate-enter-start {
-     /* The animation code itself */
-     opacity: 1;
+        @include bp(m){
+            width: 65%;
+        }
+        @include bp(s){
+            width: 90%;
+        }
     }
 
+    .settingOptions-false{
+        display: none;
+    }
     h2, p{
         padding-left: 5%;
         font-weight: normal;
@@ -440,17 +456,69 @@ footer{
 
 #closeSettings{
     background-color: #FFFFFF;
-    bottom: 0;
     cursor: pointer;
     font-weight: bold;
     height: 21px;
-    margin-bottom: 1%;
-    margin-right: 3%;
-    padding: 5px;
+    margin-top: 1%;
+    margin-right: 6%;
+    padding: 15px;
     position: absolute;
     right: 0;
     text-align: left;
-    width: 33px;
+    top: 0;
+    z-index: 10000;
+}
+
+#extraInfo{
+    
+    bottom: 0;
+    clear: both;
+    font-size: 2rem;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    z-index: 101;
+    transition: $transition;
+    background-color: $colour2;
+    color: $colour3;
+    -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+
+    &>p{
+        text-align: center;
+        color: $colour2;
+        background-color: #fff;
+        font-family: 'Lobster', cursive;
+    }
+
+
+    .toggleExtra{
+        padding-top: 11px;
+        padding-bottom: 11px;
+        margin: 0;
+        display: block;
+        transition: $transition;
+        cursor: pointer;
+        margin-top: 2px solid #f0f0f0;
+        margin-bottom: 2px solid #f0f0f0;
+
+        &:hover{
+            background-color: darken(#fff, 10%);
+        }
+    }
+
+
+    &.extraInfo-true{
+        height: 100%;
+        
+        @include bp(s){
+            overflow-y: scroll;
+        }
+    }
+
+    article p{
+        margin-top: 0;
+    }
 }
 
 /*Geocities Mode*/
@@ -487,10 +555,13 @@ html.geocities-true{
                 -moz-animation: blink 0.3s infinite;
                 animation: blink 0.3s infinite;
             }
-            .h, .e, .l, .l2, .o, .period{
+            .h, .e, .l, .l2, .o{
                 -moz-animation: none;
                 -webkit-animation: none;
                 animation: none;
+            }
+            .underscore{
+                display: none;
             }
         }
     }
@@ -528,10 +599,9 @@ html.geocities-true{
 
     footer{
         background-color: #000;
-
-        #settingsPanel{
-            font-family: "Ubuntu Condensed",sans-serif;
-        }
+    }
+    #settingsPanel{
+        font-family: "Ubuntu Condensed",sans-serif;
     }
 }
 /*Geocities Mode End*/

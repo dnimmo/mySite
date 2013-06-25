@@ -18,6 +18,7 @@ function SiteCtrl ($scope){
     $scope.geocities = false;
     $scope.geoOn = false;
     $scope.geoOff = true;
+    $scope.extra = false;
     $scope.showSettings = function(show){
         $scope.settingsPanel = show;
     }
@@ -31,5 +32,8 @@ function SiteCtrl ($scope){
     $scope.showExpanded = function(setting){
         $scope.expanded = setting;
         $scope.preview = setting;
+    }
+    $scope.showExtraInfo = function(showExtraInfo){
+        $scope.extra = showExtraInfo;
     }
 }

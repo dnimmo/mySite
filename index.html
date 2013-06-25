@@ -3,17 +3,40 @@
 	<head>
         <meta content="width=device-width; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" name="viewport">
         <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
         <link href="css/style.css" rel="stylesheet">
         <link href="https://plus.google.com/103755643955439890120/" rel="author">
     </head>
     <body style='background-color: {{bgcolor}}'>
-        <div class="wrap">
-            
-        	<section id="main" data-ng-view>
-
+        <div class="wrap extraInfo-{{extra}} showSettings-{{showSettings}}">
+            <div id="settingsToggle" data-ng-click="showSettings(true)"></div>
+            <section id="settingsPanel" class="settingsPanel-{{settingsPanel}}" data-ng-cloak>
+                <div class="settingOptions-{{settingsPanel}}">
+                    <div id="closeSettings" data-ng-click="showSettings(false)">X</div>
+                    <h2>Settings</h2>
+                    <p>Geocities Mode: <span class="setting active-{{geoOn}}" data-ng-click="geocitiesMode(true, false)">On</span> <span class="setting active-{{geoOff}}" data-ng-click="geocitiesMode(false, true)">Off</span></p>
+                    <p>Background Colour: <span><input data-ng-model="bgcolor"/></span></p>
+                </div>
+            </section>            
+        	<section id="main">
+                <div class="intro">
+                    <p><span class="h">H</span><span class="e">e</span><span class="l">l</span><span class="l2">l</span><span class="o">o</span><span class="underscore">_</span></p>
+                </div>
             </section>
         </div>
-    	<footer style='background-color: {{bgcolor}}'>
+        <!--<div class="wrap work">
+
+        </div>-->
+        <section>
+            <div id="extraInfo" class="extraInfo-{{extra}}">
+                <p class="toggleExtra" data-ng-hide="extra" data-ng-click="showExtraInfo(true)">More</p>
+                <p class="toggleExtra" data-ng-show="extra" data-ng-click="showExtraInfo(false)">Less</p>
+                <div data-ng-view>
+
+                </div>
+            </div>
+        </section>
+    	<!--<footer style='background-color: {{bgcolor}}'>
             <nav class="mainNavigation">
                 <div>
                     <a style='color: {{bgcolor}}' href="/#/about">About</a>
@@ -25,16 +48,10 @@
                 <a target="_blank" href="https://github.com/dnimmo" title="View my GitHub profile">GitHub</a>
                 <a target="_blank" href="https://plus.google.com/103755643955439890120/about" title="View my Google+ profile">Google+</a>
             </span>
-            <div id="settingsToggle" data-ng-click="showSettings(true)"></div>
-            <section id="settingsPanel" data-ng-show="settingsPanel" data-ng-cloak>
-                <h2>Settings</h2>
-                <p>Geocities Mode: <span class="setting active-{{geoOn}}" data-ng-click="geocitiesMode(true, false)">On</span> <span class="setting active-{{geoOff}}" data-ng-click="geocitiesMode(false, true)">Off</span></p>
-                <p>Background Colour: <span><input data-ng-model="bgcolor"/></span></p>
-                <div id="closeSettings" data-ng-click="showSettings(false)">X</div>
-            </section>
+            -->
         	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
             <script src="js/app.js" type="text/javascript"></script>
-            <script src="js/controller.js" type="text/javascript"></script>
-    	</footer>
+            <script src="js/controller.js" type="text/javascript"></script><!--
+    	</footer>-->
     </body>
 </html>

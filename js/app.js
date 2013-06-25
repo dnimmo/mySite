@@ -1,6 +1,6 @@
 var app = angular.module("nimmo", []).config(function($routeProvider){
     $routeProvider.when('/hello', {
-    templateUrl: 'hello.html'
+    templateUrl: 'about.html'
     });
 
     $routeProvider.when('/about', {
