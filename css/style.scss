@@ -83,10 +83,10 @@
 }
 
 /*Variables*/
-$colour1: #307BC5;
-$colour2: #2D3538;
+$colour1: #990002;/*#D54F30;*/
+$colour2: darken($colour1, 15%);/*darken($colour1, 25%);*/ /*#2D3538;*/
 $colour3: #fff;
-$colour4: #484D79;
+$colour4: #222;
 
 $transition: all linear 0.3s;
 
@@ -396,7 +396,7 @@ footer{
 }
 
 #settingsPanel{
-    background-color: #FFFFFF;
+    background-color: $colour4;
     height: 100%;
     width: 0;
     position: absolute;
@@ -406,7 +406,7 @@ footer{
      -ms-transition: 0.3s linear all; /* IE10 */
      -o-transition: 0.3s linear all; /* Opera */
      transition: 0.3s linear all; /* Future Browsers */
-    color: $colour1;
+    color: $colour3;
     font-size: 1.4rem;
     z-index: 100;
     -webkit-box-shadow: 2px 2px 32px rgba(0, 0, 0, 0.3);
@@ -437,15 +437,16 @@ footer{
         cursor:pointer;
     }
     .active-true{
-        color: #8f8f8f;
+        color: darken($colour3, 35%);
     }
     input {
-        border-color: $colour1;
+        border-color: $colour3;
         border-style: none none solid;
         border-width: 0 0 2px;
-        color: #307BC5;
+        color: $colour3;
         margin-left: 5px;
         width: 60px;
+        background-color: $colour4;
     }
 
 }
@@ -455,7 +456,7 @@ footer{
 }
 
 #closeSettings{
-    background-color: #FFFFFF;
+    background-color: $colour4;
     cursor: pointer;
     font-weight: bold;
     height: 21px;
