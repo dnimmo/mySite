@@ -9,6 +9,6 @@
   <p>What sorcery is this? Filtering on objects?</p>
   <input type="search" data-ng-model="searchObjects"/>
   <ul data-ng-controller="ListController">
-    <li data-ng-repeat="person in people | filter:searchObjects">{{person.name}} : {{person.gender}}</li>
+    <li data-ng-repeat="person in people | filter:searchObjects">{{person.name}} : {{person.gender}}  </li>
   </ul>
 </article>
