@@ -1,0 +1,14 @@
+<article class="filters">
+  <p>More awesomeness: Filters</p>
+  <input type="search" data-ng-model="search"/>
+  <ul data-ng-controller="ListController">
+    <li data-ng-repeat="name in names | filter:search">{{name}}</li>
+  </ul>
+  <p>Filter syntax: "filter:[nameOfModel]"</p>
+  
+  <p>What sorcery is this? Filtering on objects?</p>
+  <input type="search" data-ng-model="searchObjects"/>
+  <ul data-ng-controller="ListController">
+    <li data-ng-repeat="person in people | filter:searchObjects">{{person.name}} : {{person.gender}}</li>
+  </ul>
+</article>
