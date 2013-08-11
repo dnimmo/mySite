@@ -10,7 +10,7 @@ var app = express();
 app.use(app.router)
 //Set up location for static files
 app.use(express.static(__dirname + "/public"));
-app.get("/index.html", function(request, response){
+app.get("/#/angular", function(request, response){
         response.send("Hello");
 });
 

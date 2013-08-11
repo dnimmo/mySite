@@ -1,26 +1,7 @@
-/*Breakpoints*/
-@mixin bp ($p){
-    @if ($p == 's'){
-        @media screen and (max-width:400px){@content;}
-    }
-    @else if ($p == 'm'){
-        @media screen and (max-width:850px){@content;}
-    }
-    @else if ($p == 'l'){
-        @media screen and (max-width:1000px){@content;}
-    }
-    @else if ($p == 'xl'){
-        @media screen and (max-width:1350px){@content;}
-    }
-}
-// Keyframes mixin
-@mixin keyframes($name) {
-  @-webkit-keyframes #{$name} {@content;}
-  @-moz-keyframes #{$name} {@content;}
-  @-ms-keyframes #{$name} {@content;}
-  @keyframes #{$name} {@content;}
-//@content;
-}
+@import "mixins";
+@import "angular";
+@import "keyframes";
+@import "variables";
 
 /*Keyframes*/
 @include keyframes(fadeIn) {
@@ -82,13 +63,7 @@
     }
 }
 
-/*Variables*/
-$colour1: #4ED8C1;/*#D54F30;*/
-$colour2: #3EE2E5;/*darken($colour1, 25%);*/ /*#2D3538;*/
-$colour3: #000;
-$colour4: #222;
 
-$transition: all linear 0.3s;
 
 html, body{
     height: 100%;
@@ -601,3 +576,56 @@ html.geocities-true{
     }
 }
 /*Geocities Mode End*/
+
+.angular{
+   padding: 5%; 
+  
+   a{
+     border-radius: 3px;
+     -moz-box-shadow: 2px rgba(0,0,0,0.5);
+     -webkit-box-shadow: 2px rgba(0,0,0,0.5);
+     box-shadow: 2px rgba(0,0,0,0.5);
+     padding: 20px;
+     clear: both;
+     color: #fff;
+     background-color: darken($colour2, 35%);
+     text-decoration: none;
+     margin-top: 20px;
+    
+     &:hover{
+       background-color: darken($colour2, 25%);
+        transition: $transition;
+      }
+  }
+  label{
+     display: block; 
+  }
+  input{
+     display: block; 
+  }
+  ul{
+  }
+  li{
+     padding-left: 20px;
+  }
+}
+.controllerDemo{
+  margin-bottom: 50px;
+  
+  input, p{
+     display: block; 
+  }
+}
+  
+.filters{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.showExample, .hideExample{
+  height: 200px; 
+}
+
+.addNew{
+   float: left; 
+   height: 130px
+}
